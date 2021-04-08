@@ -6,7 +6,7 @@ services:
     container_name: alamp-php7.3-webserver
     restart: always
     expose:
-      - "9000"
+      - '9000'
     ports:
       - '80:80'
       - '2222:22'
@@ -20,14 +20,8 @@ services:
       - '${VHOSTS_DIR-./config/apache/vhosts}:/etc/httpd/conf.sites'
       - '${LOG_DIR-./logs/apache2}:/var/log/httpd/'
     environment:
-      PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
-
-      #WINDOWS
+      PHP_XDEBUG_ENABLED: 1
       XDEBUG_CONFIG: remote_host=host.docker.internal
-
-      #UBUNTU
-      #XDEBUG_CONFIG: remote_host=172.17.0.1 #docker network ip.
-      #PHP_IDE_CONFIG: "serverName=xdebug-docker" #phpstorm variavel de ambiente com o nome do server configurado.
   redis:
     build: ./bin/redis
     container_name: alamp-php7.3-redis
