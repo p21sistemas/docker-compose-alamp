@@ -3,7 +3,7 @@ services:
   webserver:
     build:
       context: ./bin/webserver
-    container_name: alamp-php5.6-webserver
+    container_name: alamp-php7.3-webserver
     restart: always
     expose:
       - "9000"
@@ -16,7 +16,7 @@ services:
       - mysql
     volumes:
       - '${DOCUMENT_ROOT-./www}:/var/www/html'
-      - '${PHP_INI-./config/php/php.ini}:/etc/php-5.6.d/custom.ini'
+      - '${PHP_INI-./config/php/php.ini}:/etc/php-7.3.d/custom.ini'
       - '${VHOSTS_DIR-./config/apache/vhosts}:/etc/httpd/conf.sites'
       - '${LOG_DIR-./logs/apache2}:/var/log/httpd/'
     environment:
@@ -30,13 +30,13 @@ services:
       #PHP_IDE_CONFIG: "serverName=xdebug-docker" #phpstorm variavel de ambiente com o nome do server configurado.
   redis:
     build: ./bin/redis
-    container_name: alamp-php5.6-redis
+    container_name: alamp-php7.3-redis
     restart: always
     ports:
       - '6379:6379'
   mysql:
     build: ./bin/mysql
-    container_name: alamp-php5.6-mysql
+    container_name: alamp-php7.3-mysql
     restart: always
     ports:
       - '3306:3306'
@@ -47,7 +47,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
   phpmyadmin:
     build: ./bin/phpmyadmin
-    container_name: alamp-php5.6-phpmyadmin
+    container_name: alamp-php7.3-phpmyadmin
     links:
       - mysql
     environment:
@@ -58,7 +58,7 @@ services:
     volumes:
       - /sessions
   webgoat:
-    container_name: alamp-php5.6-webgoat
+    container_name: alamp-php7.3-webgoat
     build: ./bin/webgoat
     ports:
       - '8081:8080'
