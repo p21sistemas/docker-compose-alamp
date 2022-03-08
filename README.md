@@ -4,7 +4,7 @@
 
 This is a basic ALAMP stack environment built using Docker Compose. It consists following:
 
-- PHP 5.6.X
+- PHP 7.3.X
 - Apache 2.4
 - MySQL 5.7
 - phpMyAdmin
@@ -17,11 +17,11 @@ Clone this repository on your local computer. Run the `docker-compose up -d`.
 git clone https://github.com/jerfeson/docker-compose-alamp.git
 cd docker-compose-lamp/
 git fetch --all
-git checkout 5.6.x
+git checkout 7.3.x
 cp sample.env .env
 docker-compose up -d
 ```
-> Please make sure that you are using `5.6.x` branch.
+> Please make sure that you are using `7.3.x` branch.
 
 Your ALAMP stack is now ready!! You can access it via `http://localhost`.
 
@@ -74,7 +74,7 @@ docker-compose exec webserver bash
 ```
 ## PHP
 
-The installed version of PHP is 5.6.X
+The installed version of PHP is 7.3.X
 
 By default following extensions are installed.
 
