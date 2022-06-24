@@ -39,20 +39,3 @@ services:
       - '${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql'
     environment:
       MYSQL_ROOT_PASSWORD: root
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin-php73
-    links:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-    ports:
-      - '8080:80'
-    volumes:
-      - /sessions
-  webgoat:
-    container_name: owasp
-    image: webgoat/goatandwolf
-    ports:
-      - '8081:8080'
