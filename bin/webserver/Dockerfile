@@ -1,1 +1,1 @@
-FROM p21sistemas/aap:php7.3
+FROM p21sistemas/aap:php73
